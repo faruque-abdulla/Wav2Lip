@@ -310,7 +310,7 @@ def _load(checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
     else:
         checkpoint = torch.load(checkpoint_path,
-                                map_location=lambda storage, loc: storage)
+                                map_location=torch.device('cpu'))
     return checkpoint
 
 def load_checkpoint(path, model, optimizer, reset_optimizer=False, overwrite_global_states=True):
